@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 import { Button } from "@/components/ui/button";
+import CheckoutButton from "@/components/stripe/CheckoutButton";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const BuyPage: React.FC = () => {
@@ -18,6 +19,7 @@ const BuyPage: React.FC = () => {
 };
 
 const HeroSection: React.FC = () => {
+  const product_id = "prod_R38TBC6avKzEfB"
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -37,9 +39,7 @@ const HeroSection: React.FC = () => {
       <p className="text-xl text-gray-11 mb-8">
         The future of robotics, now at your fingertips.
       </p>
-      <Button variant="primary" size="lg">
-        Buy Now
-      </Button>
+      <CheckoutButton productId={product_id}></CheckoutButton>
     </motion.section>
   );
 };
